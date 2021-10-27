@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show]
-  before_action :set_pet, only: [ :show ]
+  before_action :set_pet, only: [ :show, :edit ]
   before_action :pet_params, only: [ :create ]
   # before_action :find_user
 
@@ -24,7 +24,7 @@ class PetsController < ApplicationController
       @pet.save
       redirect_to owner_pets_path
     else
-      render :name
+      render :new
     end
   end
 
@@ -36,6 +36,16 @@ class PetsController < ApplicationController
     @pets = Pet.where(user_id: current_user.id)
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    @pet.update(pet_params)
+    redirect_to pet_path(@pet)
+  end
+
 
 
   private
@@ -45,7 +55,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :size, :breed, :status, :user_id)
+    params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id)
   end
 
   # def find_user
