@@ -22,16 +22,18 @@ class PetsController < ApplicationController
     @pet.user = current_user
     if @pet.valid?
       @pet.save
-      redirect_to user_pet_pets_path
+      redirect_to owner_pets_path
     else
       render :name
     end
   end
 
-  def user_pet
-    @user_id = current_user.id
-    @user = current_user
-    @pets = Pet.where(user_id: params[:user_id])
+  def owner
+    # @user_id = current_user.id
+    # @user = current_user
+    # @pet.user_id = current_user.id
+
+    @pets = Pet.where(user_id: current_user.id)
   end
 
 

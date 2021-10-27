@@ -1,0 +1,6 @@
+
+<div class="container">
+   <% @pets.each do |pet| %>
+      <p> <%= pet.name %> - <%= link_to 'detalhes', pet_path(pet) %> - editar - deletar - ver adoções</p>
+   <% end %>
+ </div>

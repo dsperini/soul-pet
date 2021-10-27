@@ -4,8 +4,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   resources :pets do
+
+    # member do
+    #   # /restaurants/:id/chef
+    #   get 'owner'
+    # end
+
     collection do
-      get 'user_pet'
+      get 'owner'
     end
   end
   
