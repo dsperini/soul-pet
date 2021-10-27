@@ -28,10 +28,10 @@ ActiveRecord::Schema.define(version: 2021_10_27_152418) do
 
   create_table "pets", force: :cascade do |t|
     t.string "name"
-    t.string "age"
+    t.integer "age"
     t.string "size"
     t.string "breed"
-    t.boolean "status"
+    t.boolean "available", default: true
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
