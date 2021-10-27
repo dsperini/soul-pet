@@ -1,0 +1,15 @@
+
+<div class="container">
+   
+   <%= simple_form_for [@user, @pet] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :age %>
+    <%= f.input :size, collection: ['pequeno', 'médio', 'grande'] %>
+    <%= f.input :breed %>
+    <%= f.input :available %>
+
+    <%= f.submit 'salvar', class: "btn btn-ghost mt-1" %>
+
+  <% end %>
+  
+ </div>
