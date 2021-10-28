@@ -9,8 +9,10 @@ class PetsController < ApplicationController
     @pets = Pet.all
   end
 
+  # para display o formulario de adoption no shoe do pet
   def show
-    
+    @adoption = Adoption.new()
+    # @adoption.pet = current_pet
   end
 
   def new
