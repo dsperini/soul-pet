@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   resources :pets do
+    resources :adoptions # criando a rota>> /pets/:id/adoptions
 
     # member do
     #   # /restaurants/:id/chef
@@ -15,6 +16,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :adoptions
+  
   
 end
