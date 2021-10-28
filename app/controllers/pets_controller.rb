@@ -29,10 +29,6 @@ class PetsController < ApplicationController
   end
 
   def owner
-    # @user_id = current_user.id
-    # @user = current_user
-    # @pet.user_id = current_user.id
-
     @pets = Pet.where(user_id: current_user.id)
   end
 
@@ -46,7 +42,10 @@ class PetsController < ApplicationController
     redirect_to pet_path(@pet)
   end
 
-
+  def destroy
+    @pet.destroy
+    redirect_to owner_pets_path
+  end
 
   private
 
