@@ -1,8 +1,10 @@
 
 <div class="container mt-5">
    <% @pets.each do |pet| %>
-      <p> <%= pet.name %> - <%= link_to 'detalhes', pet_path(pet) %> - 
+      <p> <%= pet.name %> - <%= link_to 'detalhes', adoptions_pet_pet_path(pet) %> - 
       <%= link_to 'atualizar', edit_pet_path(pet) %> - 
-      <%= link_to 'deletar', pet_path(pet), method: :delete, data: { confirm: "Confirma?" } %> - ver adoções</p>
+      <%= link_to 'deletar', pet_path(pet), method: :delete, data: { confirm: "Confirma?" } %> - 
+      <%= link_to 'propostas de adoção', adoptions_pet_pet_path(pet) %>
+      </p>
    <% end %>
  </div>

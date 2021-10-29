@@ -1,17 +1,14 @@
 <div class="container">
   <br>
-  <br>
-  <br>
-  <br>
   <p> Nome: <%= @pet.name%> - Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </p>
-
-
-<div class="container">
-  <%= simple_form_for [@pet, @adoption] do |f| %>
-    <%= f.input :comment, label:"Eu quero o #{@pet.name} por que..." %>
-    <%= f.submit "Desejo adotar o #{@pet.name}", class: "btn btn-ghost mt-1" %>
-  <% end %>
-</div>
-
+  <br>
+  <br>
+  <br>
+  <div class="container">
+      <%= simple_form_for [@pet, @adoption] do |f| %>
+        <%= f.input :comment, label:"Eu quero adotar o #{@pet.name} por que..." %>
+        <%= f.submit "Desejo adotar o #{@pet.name}", class: "btn btn-ghost mt-1" %>
+      <% end %>
+  </div>
 
 </div>

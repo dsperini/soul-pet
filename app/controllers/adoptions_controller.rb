@@ -1,11 +1,15 @@
 class AdoptionsController < ApplicationController
+
+  def index
+    @adoptions = Adoption.all
+  end
+
   def create
     @adoption = Adoption.new(adoption_params)
     @adoption.user = current_user
-    # binding.pry
     @adoption.pet_id = params[:pet_id] # pegando o id do pet a partir da url (lembrar das rotas)
     @adoption.save
-    redirect_to root_path, notice: "Você se candidatou a adoção, agurade aprovação!" 
+    redirect_to pet_path(@adoption.pet_id), notice: "Você se candidatou a adoção, aguarde aprovação!" 
   end
 
   private

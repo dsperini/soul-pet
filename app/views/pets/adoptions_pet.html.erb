@@ -1,0 +1,32 @@
+
+ <div class="container">
+  <br>
+  <h1>Perfil do <%= @pet.name %></h1>
+  <br>
+  <p> <%= link_to "Perfil público do #{@pet.name}", pet_path(@pet) %> -
+      <%= link_to 'Atualizar dados', edit_pet_path(@pet) %> - 
+      <%= link_to 'Deletar', pet_path(@pet), method: :delete, data: { confirm: "Confirma?" } %>
+  </p> 
+  <br>
+  <h6><strong>Nome:</strong> <%= @pet.name%></h6>
+  <h6> <strong> Idade: </strong> <%= @pet.age %> - <strong>Porte: </strong><%= @pet.size  %> - <strong>Tipo: </strong> <%= @pet.breed %> - <strong>Disponível para adoção: </strong> <%= @pet.available ? "Sim" : "Não"  %></h6>
+  <strong></strong>
+  <br>
+  <br>
+  <h4>Propostas de adoção para o <%= @pet.name %> - Total: <%= @adoptions.count %></h4>
+  
+  <br>
+  <br>
+  <ol>
+  <% @adoptions.each do |adoption| %>  
+    <li> <%= adoption.comment %>
+      <%= simple_form_for [@pet, @adoption], html: {class: 'form-inline'} do |f| %>
+        <%= f.input :approved, label:"Aprovado?" %>
+        <%= f.submit "alterar", class: "btn btn-ghost mt-1" %>
+      <% end %>
+    </li>
+  <% end %>
+  </ol>
+ </div>
+
+
