@@ -1,8 +1,23 @@
 
-<div class="container mt-5">
-   <% @pets.each do |pet| %>
-      <p> <%= pet.name %> - <%= link_to 'detalhes', pet_path(pet) %> - 
-      <%= link_to 'atualizar', edit_pet_path(pet) %> - 
-      <%= link_to 'deletar', pet_path(pet), method: :delete, data: { confirm: "Confirma?" } %> - ver adoções</p>
-   <% end %>
- </div>
+<h1>Meus Pets</h1>
+   <div>
+      <% @pets.each do |pet| %>
+      <div class="container">
+         <div class="card-product">
+            <%= image_tag "dog.png" %>
+            <div class="card-product-infos">   
+               <h3>Sou <%= pet.name %> </h3>
+               <p>Tenho <%= pet.age %> anos</p>
+               <p>Sou <%= pet.size %> </p>
+               <p>Minha raça é <%= pet.breed %></p>   
+            </div>            
+   
+            <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-ghost" %>
+            <%= link_to 'Deletar', pet_path(pet), class: "btn btn-ghost", method: :delete, data: { confirm: "Confirma?" } %> 
+            <%= link_to 'Propostas de adoção', '#', class: "btn btn-ghost" %> 
+         </div>
+      </div>
+   </div>
+<% end %>
+
+<h1>owner</h1>
