@@ -11,12 +11,25 @@ class PetsController < ApplicationController
 
   # para display o formulario de adoption no shoe do pet
   def show
-    @adoption = Adoption.new()
-    # @adoption.pet = current_pet
+    @adoption = Adoption.new
+    # if @pet.user_id == current_user.id
+    #   redirect_to pet_adoptions_path
+    # else
+    #   redirect_to pet_path
+    # end
+  end
+
+  def adoptions_pet
+    @pet = Pet.find(params[:id])
+    # @adoption. = @pet.adoption
+    # @pet.user = current_user
+    @adoptions = Adoption.where(pet_id: @pet.id)
+    @adoption = Adoption.new
   end
 
   def new
     @pet = Pet.new
+
   end
 
   def create
@@ -41,7 +54,7 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
-    redirect_to pet_path(@pet)
+    redirect_to adoptions_pet_pet_path(@pet)
   end
 
   def destroy
