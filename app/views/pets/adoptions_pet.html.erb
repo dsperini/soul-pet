@@ -16,13 +16,13 @@
   <h4>Propostas de adoção para o <%= @pet.name %> - Total: <%= @adoptions.count %></h4>
   
   <br>
-  <br>
+  <%# pet_adoption_path(@pet.id, adoption.id) ou [@pet, adoption] ou adoption, url: "/pets/#{@pet.id}/adoptions/#{adoption.id}" %>
   <ol>
   <% @adoptions.each do |adoption| %>  
     <li> <%= adoption.comment %>
-      <%= simple_form_for [@pet, @adoption], html: {class: 'form-inline'} do |f| %>
+      <%= simple_form_for adoption, url: "/pets/#{@pet.id}/adoptions/#{adoption.id}", html: {class: 'form-inline'} do |f| %>
         <%= f.input :approved, label:"Aprovado?" %>
-        <%= f.submit "alterar", class: "btn btn-ghost mt-1" %>
+        <%= f.submit "alterar", class: "btn btn-outline-primary m-2" %>
       <% end %>
     </li>
   <% end %>

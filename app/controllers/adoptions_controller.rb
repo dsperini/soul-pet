@@ -12,10 +12,18 @@ class AdoptionsController < ApplicationController
     redirect_to pet_path(@adoption.pet_id), notice: "Você se candidatou a adoção, aguarde aprovação!" 
   end
 
+  def update
+    @adoption = Adoption.find(params[:id])
+    @adoption.update(adoption_params)
+    @pet = @adoption.pet
+    @pet.update(available: false) if @adoption.approved 
+    redirect_to owner_pets_path
+  end
+
   private
 
   # passar os parametros para preenche o comentario e vincular o id
   def adoption_params
-    params.require(:adoption).permit(:comment)
+    params.require(:adoption).permit(:comment, :approved)
   end
 end
