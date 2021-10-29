@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show]
-  before_action :set_pet, only: [ :show, :edit ]
+  before_action :set_pet, only: [ :show, :edit, :destroy ]
   before_action :pet_params, only: [ :create ]
   # before_action :find_user
 
@@ -58,6 +58,7 @@ class PetsController < ApplicationController
   end
 
   def destroy
+    raise
     @pet.destroy
     redirect_to owner_pets_path
   end
