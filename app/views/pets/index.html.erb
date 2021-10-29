@@ -1,7 +1,15 @@
  
  <div class="container">
    <% @pets.each do |pet| %>
-      <p> <%= pet.name %> - <%= link_to 'detalhes', pet_path(pet) %> </p>
-   <% end %>
+      <p>  -  </p>
+  
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= pet.name %></h2>
+          <p> <strong>Idade: </strong> <%= pet.age %> - <strong> Tipo: </strong> <%= pet.breed %> - <%= link_to 'detalhes', pet_path(pet) %></p>
+        </div>
+      </div>
+    <% end %>
  </div>
 <h1>Index</h1>

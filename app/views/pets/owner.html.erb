@@ -9,7 +9,7 @@
                <h3>Sou <%= pet.name %> </h3>
                <p>Tenho <%= pet.age %> anos</p>
                <p>Sou <%= pet.size %> </p>
-               <p>Minha raça é <%= pet.breed %></p>   
+               <p>Tipo: <%= pet.breed %></p>   
             </div>            
    
             <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-ghost" %>
@@ -19,5 +19,3 @@
       </div>
    </div>
 <% end %>
-
-<h1>owner</h1>
