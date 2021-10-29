@@ -1,10 +1,25 @@
 
 <div class="container mt-5">
-   <% @pets.each do |pet| %>
-      <p> <%= pet.name %> - <%= link_to 'detalhes', adoptions_pet_pet_path(pet) %> - 
-      <%= link_to 'atualizar', edit_pet_path(pet) %> - 
-      <%= link_to 'deletar', pet_path(pet), method: :delete, data: { confirm: "Confirma?" } %> - 
-      <%= link_to 'propostas de adoção', adoptions_pet_pet_path(pet) %>
-      </p>
-   <% end %>
- </div>
+   <h1 class="text-center">Meus Pets</h1>
+   <div>
+      <% @pets.each do |pet| %>
+         <div class="container">
+            <div class="card-product my-4">
+               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
+               <div class="card-product-infos w-75">   
+                  <h3>Sou <%= pet.name %> </h3>
+                  <p>Tenho <%= pet.age %> anos</p>
+                  <p>Sou <%= pet.size %> </p>
+                  <p>Tipo: <%= pet.breed %></p>   
+               </div> 
+               
+               <div class="d-flex w-25 align-items-end flex-column py-2">
+                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  <%= link_to 'Propostas de adoção', '#', class: "btn btn-outline-warning w-100" %> 
+                  <%= link_to 'Deletar', pet_path(pet), class: "btn btn-outline-danger w-100", method: :delete, data: { confirm: "Confirma?" } %> 
+               </div> 
+            </div>
+         </div>
+      <% end %>
+   </div>
+</div>
