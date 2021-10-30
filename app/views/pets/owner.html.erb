@@ -4,24 +4,29 @@
    <div>
       <% @pets_available.each do |pet| %>
          <div class="container">
-            <div class="card-product my-4">
-               <% if pet.photo.attached? %>
-                  <%= cl_image_tag pet.photo.key, crop: :fill %>
-               <% else %>
-                  <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
-               <% end %>
-               <div class="card-product-infos w-75">   
-                  <h3>Sou <%= pet.name %> </h3>
-                  <p>Tenho <%= pet.age %> anos</p>
-                  <p>Sou <%= pet.size %> </p>
-                  <p>Tipo: <%= pet.breed %></p>   
-               </div> 
-               
-               <div class="d-flex w-25 align-items-end flex-column py-2">
-                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
-                  <%= link_to 'Propostas de adoção', adoptions_pet_pet_path(pet), class: "btn btn-outline-warning w-100" %> 
-                  <%= link_to 'Deletar', pet_path(pet), class: "btn btn-outline-danger w-100", method: :delete, data: { confirm: "Confirma?" } %> 
-               </div> 
+            <div class="card-product row my-4">
+               <div class="flex-grow-0">
+                  <% if pet.photo.attached? %>
+                     <%= cl_image_tag pet.photo.key, crop: :fill %>
+                  <% else %>
+                     <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+                  <% end %>
+               </div>
+               <div class="flex-grow-1">
+                  <div class="card-product-infos">   
+                     <h3>Sou <%= pet.name %> </h3>
+                     <p>Tenho <%= pet.age %> anos</p>
+                     <p>Sou <%= pet.size %> </p>
+                     <p>Tipo: <%= pet.breed %></p>   
+                  </div> 
+               </div>
+               <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 col-xl-3">
+                  <div class="d-flex align-items-end flex-column py-2">
+                     <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                     <%= link_to 'Propostas de adoção', adoptions_pet_pet_path(pet), class: "btn btn-outline-warning w-100" %> 
+                     <%= link_to 'Deletar', pet_path(pet), class: "btn btn-outline-danger w-100", method: :delete, data: { confirm: "Confirma?" } %> 
+                  </div> 
+               </div>
             </div>
          </div>
       <% end %>
@@ -32,19 +37,27 @@
    <div>
       <% @pets_adopted.each do |pet| %>
          <div class="container">
-            <div class="card-product my-4">
-               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
-               <div class="card-product-infos w-75">   
-                  <h3>Sou <%= pet.name %> </h3>
-                  <p>Tenho <%= pet.age %> anos</p>
-                  <p>Sou <%= pet.size %> </p>
-                  <p>Tipo: <%= pet.breed %></p>   
-               </div> 
-               
-               <div class="d-flex w-25 align-items-end flex-column py-2">
-                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
-                  
-               </div> 
+            <div class="card-product row my-4">
+               <div class="flex-grow-0">
+                  <% if pet.photo.attached? %>
+                     <%= cl_image_tag pet.photo.key, crop: :fill %>
+                  <% else %>
+                     <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+                  <% end %>
+               </div>
+               <div class="flex-grow-1">
+                  <div class="card-product-infos">   
+                     <h3>Sou <%= pet.name %> </h3>
+                     <p>Tenho <%= pet.age %> anos</p>
+                     <p>Sou <%= pet.size %> </p>
+                     <p>Tipo: <%= pet.breed %></p>   
+                  </div> 
+               </div>
+               <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 col-xl-3">
+                  <div class="d-flex align-items-end flex-column py-2">
+                     <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  </div> 
+               </div>
             </div>
          </div>
       <% end %>
@@ -55,42 +68,58 @@
    <div>
       <% @pets_unavailable.each do |pet| %>
          <div class="container">
-            <div class="card-product my-4">
-               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
-               <div class="card-product-infos w-75">   
-                  <h3>Sou <%= pet.name %> </h3>
-                  <p>Tenho <%= pet.age %> anos</p>
-                  <p>Sou <%= pet.size %> </p>
-                  <p>Tipo: <%= pet.breed %></p>   
-               </div> 
-               
-               <div class="d-flex w-25 align-items-end flex-column py-2">
-                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
-                  
-               </div> 
+            <div class="card-product row my-4">
+               <div class="flex-grow-0">
+                  <% if pet.photo.attached? %>
+                     <%= cl_image_tag pet.photo.key, crop: :fill %>
+                  <% else %>
+                     <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+                  <% end %>
+               </div>
+               <div class="flex-grow-1">
+                  <div class="card-product-infos">   
+                     <h3>Sou <%= pet.name %> </h3>
+                     <p>Tenho <%= pet.age %> anos</p>
+                     <p>Sou <%= pet.size %> </p>
+                     <p>Tipo: <%= pet.breed %></p>   
+                  </div> 
+               </div>
+               <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 col-xl-3">
+                  <div class="d-flex align-items-end flex-column py-2">
+                     <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  </div> 
+               </div>
             </div>
          </div>
       <% end %>
    </div>
 
-   <h3 class="text-center" style="background-color: rgb(230, 230, 230) ">Pets Falecidos - Total: <%= @pets_dead.count %></h3>
+   <h3 class="text-center" style="background-color: rgb(230, 230, 230) ">Pets Indisponíveis e não adotados - Total: <%= @pets_dead.count %></h3>
 
    <div>
       <% @pets_dead.each do |pet| %>
          <div class="container">
-            <div class="card-product my-4">
-               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
-               <div class="card-product-infos w-75">   
-                  <h3>Sou <%= pet.name %> </h3>
-                  <p>Tenho <%= pet.age %> anos</p>
-                  <p>Sou <%= pet.size %> </p>
-                  <p>Tipo: <%= pet.breed %></p>   
-               </div> 
-               
-               <div class="d-flex w-25 align-items-end flex-column py-2">
-                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
-                  
-               </div> 
+            <div class="card-product row my-4">
+               <div class="flex-grow-0">
+                  <% if pet.photo.attached? %>
+                     <%= cl_image_tag pet.photo.key, crop: :fill %>
+                  <% else %>
+                     <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+                  <% end %>
+               </div>
+               <div class="flex-grow-1">
+                  <div class="card-product-infos">   
+                     <h3>Sou <%= pet.name %> </h3>
+                     <p>Tenho <%= pet.age %> anos</p>
+                     <p>Sou <%= pet.size %> </p>
+                     <p>Tipo: <%= pet.breed %></p>   
+                  </div> 
+               </div>
+               <div class="col-sm-12 col-xs-12 col-md-3 col-lg-3 col-xl-3 col-xl-3">
+                  <div class="d-flex align-items-end flex-column py-2">
+                     <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  </div> 
+               </div>
             </div>
          </div>
       <% end %>

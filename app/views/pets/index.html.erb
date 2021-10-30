@@ -1,9 +1,8 @@
 
  <div class="container">
    <% @pets.each do |pet| %>
-      <p>  -  </p>
   
-      <div class="card-product">
+      <div class="card-product my-4">
         <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
         <% if pet.photo.attached? %>
           <%= cl_image_tag pet.photo.key, crop: :fill %>

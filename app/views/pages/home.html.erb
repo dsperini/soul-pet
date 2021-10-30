@@ -4,12 +4,14 @@
     <div class="row justify-content-center mt-5">
       <div class="col-xs-12 col-sm-12	col-md-12 col-lg-5	 text-center me-5"> 
         <h1>Quero adotar</h1>
-        <p> Clique aqui e conheça seu futuro amigo <%= link_to 'Buscar Pet', pets_path, class: 'btn btn-primary' %></p>
+        <p class="my-2"> Clique aqui e conheça seu futuro amigo </p>
+        <p><%= link_to 'Buscar Pet', pets_path, class: 'btn btn-primary' %></p>
       </div>
 
       <div class="col-xs-12 col-sm-12	col-md-12	col-lg-5 text-center"> 
         <h1>Quero ser adotado</h1>
-        <p> Ajude um Pet a achar seu novo dono  <%= link_to 'Cadastrar Pet', new_pet_path, class: 'btn btn-primary' %></p>
+        <p class="my-2"> Ajude um Pet a achar seu novo dono</p>  
+        <p><%= link_to 'Cadastrar Pet', new_pet_path, class: 'btn btn-primary' %></p>
     </div>
   </div>
 </div>
