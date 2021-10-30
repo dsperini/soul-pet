@@ -1,9 +1,8 @@
 
 <div class="container mt-5">
-   <h1 class="text-center">Meus Pets</h1>
+   <h3 class="text-center" style="background-color: rgb(230, 230, 230)">Meus Pets - Total: <%= @pets_available.count %></h3>
    <div>
       <% @pets_available.each do |pet| %>
-
          <div class="container">
             <div class="card-product my-4">
                <%= cl_image_tag pet.photo.key, crop: :fill %>
@@ -16,11 +15,83 @@
                
                <div class="d-flex w-25 align-items-end flex-column py-2">
                   <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
-                  <%= link_to 'Propostas de adoção', '#', class: "btn btn-outline-warning w-100" %> 
+                  <%= link_to 'Propostas de adoção', adoptions_pet_pet_path(pet), class: "btn btn-outline-warning w-100" %> 
                   <%= link_to 'Deletar', pet_path(pet), class: "btn btn-outline-danger w-100", method: :delete, data: { confirm: "Confirma?" } %> 
                </div> 
             </div>
          </div>
       <% end %>
    </div>
+
+   <h3 class="text-center" style="background-color: rgb(230, 230, 230) ">Pets Adotados - Total: <%= @pets_adopted.count %></h3>
+
+   <div>
+      <% @pets_adopted.each do |pet| %>
+         <div class="container">
+            <div class="card-product my-4">
+               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
+               <div class="card-product-infos w-75">   
+                  <h3>Sou <%= pet.name %> </h3>
+                  <p>Tenho <%= pet.age %> anos</p>
+                  <p>Sou <%= pet.size %> </p>
+                  <p>Tipo: <%= pet.breed %></p>   
+               </div> 
+               
+               <div class="d-flex w-25 align-items-end flex-column py-2">
+                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  
+               </div> 
+            </div>
+         </div>
+      <% end %>
+   </div>
+
+   <h3 class="text-center" style="background-color: rgb(230, 230, 230) ">Pets Indisponíveis - Total: <%= @pets_unavailable.count %></h3>
+
+   <div>
+      <% @pets_unavailable.each do |pet| %>
+         <div class="container">
+            <div class="card-product my-4">
+               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
+               <div class="card-product-infos w-75">   
+                  <h3>Sou <%= pet.name %> </h3>
+                  <p>Tenho <%= pet.age %> anos</p>
+                  <p>Sou <%= pet.size %> </p>
+                  <p>Tipo: <%= pet.breed %></p>   
+               </div> 
+               
+               <div class="d-flex w-25 align-items-end flex-column py-2">
+                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  
+               </div> 
+            </div>
+         </div>
+      <% end %>
+   </div>
+
+   <h3 class="text-center" style="background-color: rgb(230, 230, 230) ">Pets Falecidos - Total: <%= @pets_dead.count %></h3>
+
+   <div>
+      <% @pets_dead.each do |pet| %>
+         <div class="container">
+            <div class="card-product my-4">
+               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
+               <div class="card-product-infos w-75">   
+                  <h3>Sou <%= pet.name %> </h3>
+                  <p>Tenho <%= pet.age %> anos</p>
+                  <p>Sou <%= pet.size %> </p>
+                  <p>Tipo: <%= pet.breed %></p>   
+               </div> 
+               
+               <div class="d-flex w-25 align-items-end flex-column py-2">
+                  <%= link_to 'Atualizar', edit_pet_path(pet), class: "btn btn-outline-primary w-100" %>
+                  
+               </div> 
+            </div>
+         </div>
+      <% end %>
+   </div>
+
+   
+
 </div>
