@@ -5,4 +5,7 @@ class Pet < ApplicationRecord
   validates :size, inclusion: {in: ['pequeno', 'médio', 'grande']}
   validates :breed, inclusion: {in: ['cão', 'gato', 'passarinho']}
 
+  # cloudnary set-up
+  has_one_attached :photo
+
 end

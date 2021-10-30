@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :index, :show]
-  before_action :set_pet, only: [ :show, :edit ]
+  before_action :set_pet, only: [ :show, :edit, :destroy ]
   before_action :pet_params, only: [ :create ]
   # before_action :find_user
 
@@ -73,7 +73,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id)
+    params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id, :photo)
   end
 
  
