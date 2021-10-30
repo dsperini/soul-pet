@@ -6,7 +6,7 @@
 
          <div class="container">
             <div class="card-product my-4">
-               <%= image_tag src="https://res.cloudinary.com/ddkjpdqw5/image/upload/v1635519097/dog1_xgfxhk.jpg" %>
+               <%= cl_image_tag pet.photo.key, crop: :fill %>
                <div class="card-product-infos w-75">   
                   <h3>Sou <%= pet.name %> </h3>
                   <p>Tenho <%= pet.age %> anos</p>

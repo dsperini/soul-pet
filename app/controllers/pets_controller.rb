@@ -58,7 +58,6 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    raise
     @pet.destroy
     redirect_to owner_pets_path
   end
@@ -70,7 +69,7 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id)
+    params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id, :photo)
   end
 
   # def find_user

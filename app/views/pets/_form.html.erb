@@ -6,6 +6,7 @@
     <%= f.input :age, label: "Idade"  %>
     <%= f.input :size, label: "Porte", collection: ['pequeno', 'médio', 'grande'] %>
     <%= f.input :breed, label: "Tipo", collection: ['cão', 'gato', 'passarinho'] %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :available, label: "Disponível?"  %>
 
     <%= f.submit 'salvar', class: "btn btn-ghost mt-1" %>
