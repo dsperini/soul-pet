@@ -5,7 +5,11 @@
       <% @pets_available.each do |pet| %>
          <div class="container">
             <div class="card-product my-4">
-               <%= cl_image_tag pet.photo.key, crop: :fill %>
+               <% if pet.photo.attached? %>
+                  <%= cl_image_tag pet.photo.key, crop: :fill %>
+               <% else %>
+                  <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+               <% end %>
                <div class="card-product-infos w-75">   
                   <h3>Sou <%= pet.name %> </h3>
                   <p>Tenho <%= pet.age %> anos</p>
