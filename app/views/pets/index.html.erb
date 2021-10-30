@@ -4,7 +4,13 @@
       <p>  -  </p>
   
       <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+        <% if pet.photo.attached? %>
+          <%= cl_image_tag pet.photo.key, crop: :fill %>
+        <% else %>
+          <%= cl_image_tag("cat-dog_yqmypv", crop: :fill) %>
+        <% end %>
+      
         <div class="card-product-infos">
           <h2><%= pet.name %></h2>
           <p> <strong>Idade: </strong> <%= pet.age %> - <strong> Tipo: </strong> <%= pet.breed %> - <%= link_to 'detalhes', pet_path(pet) %></p>
