@@ -12,11 +12,6 @@ class PetsController < ApplicationController
   # para display o formulario de adoption no shoe do pet
   def show
     @adoption = Adoption.new
-    # if @pet.user_id == current_user.id
-    #   redirect_to pet_adoptions_path
-    # else
-    #   redirect_to pet_path
-    # end
   end
 
   def adoptions_pet
@@ -24,7 +19,6 @@ class PetsController < ApplicationController
     # @adoption. = @pet.adoption
     # @pet.user = current_user
     @adoptions = Adoption.where(pet_id: @pet.id)
-    @adoption = Adoption.new
   end
 
   def new
@@ -44,7 +38,13 @@ class PetsController < ApplicationController
   end
 
   def owner
-    @pets = Pet.where(user_id: current_user.id)
+    # @pets = Pet.where(user_id: current_user.id)
+    @pets_available = Pet.where(user_id: current_user.id, available: true)
+    @pets_adopted = Pet.includes(:adoptions).where(adoptions: {approved: true}, user_id: current_user.id) # todos adotados e indisponiveis
+    @pets_unavailable = Pet.where(user_id: current_user.id, available: false) # todos indisponíveis
+    
+    @pets_dead = @pets_unavailable - @pets_adopted
+
   end
 
   def edit
@@ -54,7 +54,11 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     @pet.update(pet_params)
-    redirect_to adoptions_pet_pet_path(@pet)
+    
+    @adoption = @pet.adoptions.find_by(approved: true)
+    @adoption.update(approved: false) if @pet.available && @adoption
+
+    redirect_to owner_pets_path(@pet)
   end
 
   def destroy
@@ -72,6 +76,7 @@ class PetsController < ApplicationController
     params.require(:pet).permit(:name, :age, :size, :breed, :available, :user_id)
   end
 
+ 
   # def find_user
   #   @user = current_user
   # end
