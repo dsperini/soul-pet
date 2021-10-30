@@ -3,6 +3,13 @@
   <p> Nome: <%= @pet.name%> - Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </p>
   <br>
   <br>
+  
+  <% if @pet.photo.attached? %>
+    <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fit %>
+  <% else %>
+    <%= cl_image_tag("cat-dog_yqmypv", height: 300, width: 400, crop: :fit) %>
+  <% end %>
+  
   <br>
   <div class="container">
       <%= simple_form_for [@pet, @adoption] do |f| %>
