@@ -6,7 +6,7 @@ class PetsController < ApplicationController
 
 
   def index
-    @pets = Pet.all
+    @pets = Pet.where(available: true)
   end
 
   # para display o formulario de adoption no shoe do pet
