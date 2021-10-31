@@ -1,20 +1,33 @@
 <div class="container">
+  <div class="row m-5">
+    <div class="card-product img col-6">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <% if @pet.photo.attached? %>
+        <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fit %>
+        <% else %>
+        <%= cl_image_tag("cat-dog_yqmypv", height: 300, width: 400, crop: :fit) %>
+        <% end %>
+      </div>
+    </div>
+    <div class="cards col-5"> 
+      <div class="cards col-12">
+        <h4> Nome: <%= @pet.name%> </h4>
+      </div>
+      <div class="cards col-12">
+        <h6> Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </h6>
+      </div>
+      <div class="cards col-12">
+        <h6> Tipo: <%= @pet.breed  %> </h6>
+      </div>
+    </div>
+  </div>
   <br>
-  <p> Nome: <%= @pet.name%> - Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </p>
   <br>
-  <br>
-  
-  <% if @pet.photo.attached? %>
-    <%= cl_image_tag @pet.photo.key, height: 300, width: 400, crop: :fit %>
-  <% else %>
-    <%= cl_image_tag("cat-dog_yqmypv", height: 300, width: 400, crop: :fit) %>
-  <% end %>
-  
   <br>
   <div class="container">
       <%= simple_form_for [@pet, @adoption] do |f| %>
         <%= f.input :comment, label:"Eu quero adotar o #{@pet.name} por que..." %>
-        <%= f.submit "Desejo adotar o #{@pet.name}", class: "btn btn-ghost mt-1" %>
+        <%= f.submit "Desejo adotar o #{@pet.name}", class: "btn btn-outline-primary mt-1" %>
       <% end %>
   </div>
 
