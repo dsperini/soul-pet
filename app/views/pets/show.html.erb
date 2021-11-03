@@ -8,18 +8,19 @@
         <%= cl_image_tag("cat-dog_yqmypv", height: 300, width: 400, crop: :fit) %>
         <% end %>
       </div>
+      <div class="cards col-5"> 
+        <div class="cards col-12">
+          <h4> Nome: <%= @pet.name%> </h4>
+        </div>
+        <div class="cards col-12">
+          <h6> Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </h6>
+        </div>
+        <div class="cards col-12">
+          <h6> Tipo: <%= @pet.breed  %> </h6>
+        </div>
+      </div>
     </div>
-    <div class="cards col-5"> 
-      <div class="cards col-12">
-        <h4> Nome: <%= @pet.name%> </h4>
-      </div>
-      <div class="cards col-12">
-        <h6> Idade: <%= @pet.age  %> - Porte: <%= @pet.size  %> </h6>
-      </div>
-      <div class="cards col-12">
-        <h6> Tipo: <%= @pet.breed  %> </h6>
-      </div>
-    </div>
+    
   </div>
   <br>
   <br>
