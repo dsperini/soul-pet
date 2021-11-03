@@ -2,12 +2,12 @@
 <div class="container">
 
    <%= simple_form_for [@user, @pet] do |f| %>
-    <%= f.input :name, label: "Nome"  %>
-    <%= f.input :age, label: "Idade"  %>
-    <%= f.input :size, label: "Porte", collection: ['pequeno', 'médio', 'grande'] %>
-    <%= f.input :breed, label: "Tipo", collection: ['cão', 'gato', 'passarinho'] %>
-    <%= f.input :photo, as: :file %>
-    <%= f.input :available, label: "Disponível?"  %>
+    <%= f.input :name, label: "Qual é o nome do seu amiguinho?"  %>
+    <%= f.input :age, label: "Quantos anos ele tem?"  %>
+    <%= f.input :size, label: "Qual é o porte", collection: ['pequeno', 'médio', 'grande'] %>
+    <%= f.input :breed, label: "O seu amiguinho é um...", collection: ['cão', 'gato', 'passarinho'] %>
+    <%= f.input :photo, label: "Insira uma foto:", as: :file %>
+    <%= f.input :available, label: "Ele está disponível para adoção?"  %>
 
     <%= f.submit 'salvar', class: "btn btn-ghost mt-1" %>
 
