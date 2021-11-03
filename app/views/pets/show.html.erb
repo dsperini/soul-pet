@@ -30,7 +30,7 @@
   <br>
   <div class="container">
       <%= simple_form_for [@pet, @adoption] do |f| %>
-        <p><%= f.input :comment, label:"Eu quero adotar o #{@pet.name.upcase.b} por que..." %><p>
+        <p><%= f.input :comment, label:"Eu quero adotar o #{@pet.name.upcase.b} porque..." %><p>
         <%= f.submit "Desejo adotar o #{@pet.name.upcase}", class: "btn btn-outline-primary mt-1" %>
       <% end %>
   </div>
