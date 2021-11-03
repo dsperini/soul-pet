@@ -9,26 +9,34 @@
 # Adoption.destroy_all
 # Pet.destroy_all
 # User.destroy_all
+require 'faker'
 
-# 5.times do 
-#   user = User.create!(
-#     email: Faker::Internet.email,
-#     password: "123123"
-#   )
+5.times do 
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: "123123"
+  )
 
-#   puts "The user #{user.id} created"
-#   puts '-----------------------------'
-#   puts "Uploading some products to user..."
-#   puts '-----------------------------'
+  puts "The user #{user.id} created"
+  puts '-----------------------------'
+  puts "Uploading some products to user..."
+  puts '-----------------------------'
 
 
-#   10.times do 
-#     file = URI.open('https://source.unsplash.com/featured/?dog')
-#     dog = Product.create!( FAKERTESTAR!!
-#     )
-#     dog.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+  10.times do 
+    file = URI.open('https://source.unsplash.com/featured/?pet')
     
-#     puts "The dog #{dog.id}"
-#   end
-# end
-puts "***********************************"
+    pet = Pet.create!(
+      user_id: user.id,
+      name: Faker::Creature::Dog.name,
+      age: (1..20).to_a.sample,
+      breed: ['cão', 'gato', 'passarinho'].sample,
+      size: ['pequeno', 'médio', 'grande'].sample
+
+    )
+    pet.photo.attach(io: file, filename: 'photo.png', content_type: 'image/png')
+    
+    puts "The dog #{pet.id}"
+  end
+end
+puts "fim"
